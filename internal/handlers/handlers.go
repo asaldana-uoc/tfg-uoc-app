@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"fmt"
+	"github.com/asaldana-uoc/tfg-uoc-app/internal/helpers"
 	"github.com/asaldana-uoc/tfg-uoc-app/internal/render"
 	"github.com/asaldana-uoc/tfg-uoc-app/web"
 	"log"
-	"net"
 	"net/http"
 	"os"
 )
@@ -18,7 +18,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	// Es limita les possibles URIs a gestionar amb, acceptant exclusivament /
 	if r.URL.Path != "/" {
 		log.Printf("Petició rebuda a la URL %s però no es troba disponible", r.URL.Path)
-		http.Error(w, "Pàgina no trobada.", http.StatusNotFound)
+		http.Error(w, "Pàgina no trobada", http.StatusNotFound)
 		return
 	}
 	log.Printf("Petició rebuda a la URL %s", r.URL.Path)
@@ -27,7 +27,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	stringMap := make(map[string]string)
 	hostname, _ := os.Hostname()
 	stringMap["hostname"] = hostname
-	stringMap["ipAddress"] = getLocalIP()
+	stringMap["ipAddress"], _ = helpers.GetLocalIP()
 	stringMap["gitCommit"] = gitCommit
 
 	// Definim quina plantilla HTML utilitzarem i li passem els valors del mapa d'strings per a que modifiqui
@@ -50,21 +50,3 @@ func Status(w http.ResponseWriter, r *http.Request) {
 
 }
 
-/* Funció auxiliar que retorna l'adreça IP de l'equip on s'està executant el codi */
-func getLocalIP() string {
-	addrs, err := net.InterfaceAddrs()
-	if err != nil {
-		log.Print("Error al obtenir les adreces IPs locals", err.Error())
-	}
-
-	for _, a := range addrs {
-		if ip, ok := a.(*net.IPNet); ok && !ip.IP.IsLoopback() {
-			if ip.IP.To4() != nil {
-				ipAddress := ip.IP.String()
-				log.Printf("Indentificada l'adreça IP %s en el host local", ipAddress)
-				return ipAddress
-			}
-		}
-	}
-	return ""
-}
