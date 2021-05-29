@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/asaldana-uoc/tfg-uoc-app/pkg/render"
+	"github.com/asaldana-uoc/tfg-uoc-app/internal/render"
 	"github.com/asaldana-uoc/tfg-uoc-app/web"
 	"log"
 	"net"
@@ -29,7 +29,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 	// Definim quina plantilla HTML utilitzarem i li passem els valors del mapa d'strings per a que modifiqui
 	// dinàmicament els valors Hostname i Adreça IP
-	render.RenderTemplate(w, "home.html.tmpl", &web.HTMLData{StringMap: stringMap})
+	render.RenderTemplate(w, "home.html.tmpl", &web.DataHTML{StringMap: stringMap})
 }
 
 

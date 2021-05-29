@@ -1,19 +1,23 @@
 package render
 
 import (
+	"embed"
 	"github.com/asaldana-uoc/tfg-uoc-app/web"
 	"html/template"
 	"log"
 	"net/http"
 )
 
-var templatesPath = "./web/html/"
+//go:embed html
+var templatesHTML embed.FS
+
+const templatesPath = "html/"
 
 // RenderTemplate Funció que s'encarrega de realitzar la renderització de la pàgina HTML a mostrar segons els paràmetres
 // que rebi d'entrada (plantilla a utilitzar i conjunt de variables a tenir en compte)
-func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.HTMLData) error {
+func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.DataHTML) error {
 	templateFile := templatesPath + tmpl
-	parsedTemplate, err:= template.ParseFiles(templateFile)
+	parsedTemplate, err:= template.ParseFS(templatesHTML, templateFile)
 	if err != nil {
 		http.Error(w, "Servei no disponible", http.StatusServiceUnavailable)
 		log.Print(err.Error())
