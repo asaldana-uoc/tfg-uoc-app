@@ -17,7 +17,7 @@ const templatesPath = "html/"
 // que rebi d'entrada (plantilla a utilitzar i conjunt de variables a tenir en compte)
 func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.DataHTML) error {
 	templateFile := templatesPath + tmpl
-	parsedTemplate, err:= template.ParseFS(templatesHTML, templateFile)
+	parsedTemplate, err := template.ParseFS(templatesHTML, templateFile)
 	// Si no es troba la plantilla, es retorna un missatge i codi d'error HTTP/503
 	if err != nil {
 		http.Error(w, "Servei no disponible", http.StatusServiceUnavailable)

@@ -11,7 +11,7 @@ import (
 )
 
 // Variable que s'injectarà en el moment de compilar l'aplicació per incloure el git commit hash dins de la pàgina HTML
-var	gitCommit string
+var gitCommit string
 
 // Home Handler que s'encarrega d'implementar la lògica de la pàgina principal on es mostra una pàgina HTML
 // amb la informació del TFG i el hostname i l'adreça IP del sistema.
@@ -36,7 +36,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.html.tmpl", &web.DataHTML{StringMap: stringMap})
 }
 
-
 // Status Handler que s'encarrega d'implementar la lògica per obtenir l'estat del servei per a retornar-lo
 //al balancejador o al element que comprovi el health check
 func Status(w http.ResponseWriter, r *http.Request) {
@@ -50,4 +49,3 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Health check OK")
 
 }
-
