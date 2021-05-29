@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-var gitCommit string
+var	gitCommit string
 
 // Home Handler que s'encarrega d'implementar la lògica de la pàgina principal on es mostra una pàgina HTML
 // amb la informació del TFG i el hostname i l'adreça IP del sistema.
