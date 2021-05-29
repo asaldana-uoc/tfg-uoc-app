@@ -10,6 +10,10 @@ import (
 	"os"
 )
 
+// Home Handler que s'encarrega d'implementar la lògica de la pàgina principal on es mostra una pàgina HTML
+// amb la informació del TFG i el hostname i l'adreça IP del sistema. Es limita les possibles URIs a gestionar amb
+// la condició inicial que analitza la URL de la petició. Un cop validat, es renderitza el contingut de la pàgina HTML
+// passant les variables hostname i ipAddress.
 func Home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		log.Printf("Petició rebuda a la URL %s però no es troba disponible", r.URL.Path)
@@ -26,6 +30,9 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.html.tmpl", &web.HTMLData{StringMap: stringMap})
 }
 
+
+// Status Handler que s'encarrega d'implementar la lògica per obtenir l'estat del servei per a retornar-lo
+//al balancejador o al element que comprovi el health check
 func Status(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/estat" {
 		log.Printf("Petició rebuda a la URL %s però no es troba disponible", r.URL.Path)
@@ -38,6 +45,7 @@ func Status(w http.ResponseWriter, r *http.Request) {
 
 }
 
+/* Funció auxiliar que retorna l'adreça IP de l'equip on s'està executant el codi */
 func getLocalIP() string {
 	addrs, err := net.InterfaceAddrs()
 	if err != nil {

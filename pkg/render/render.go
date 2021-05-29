@@ -9,6 +9,8 @@ import (
 
 const templatesPath = "./web/html/"
 
+// RenderTemplate Funció que s'encarrega de realitzar la renderització de la pàgina HTML a mostrar segons els paràmetres
+// que rebi d'entrada (plantilla a utilitzar i conjunt de variables a tenir en compte)
 func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.HTMLData) error {
 	templateFile := templatesPath + tmpl
 	parsedTemplate, err:= template.ParseFiles(templateFile)

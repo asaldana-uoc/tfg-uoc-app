@@ -8,6 +8,7 @@ import (
 
 const port = ":8888"
 
+// Main principal d'entrada de l'aplicació on es defineix el port on s'aixecarà el servidor web,
 func main() {
 	http.HandleFunc("/", handlers.Home)
 	http.HandleFunc("/estat", handlers.Status)
