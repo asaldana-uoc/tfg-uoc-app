@@ -10,6 +10,7 @@ import (
 	"os"
 )
 
+// Variable que s'injectarà en el moment de compilar l'aplicació per incloure el git commit hash dins de la pàgina HTML
 var	gitCommit string
 
 // Home Handler que s'encarrega d'implementar la lògica de la pàgina principal on es mostra una pàgina HTML
@@ -23,7 +24,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Printf("Petició rebuda a la URL %s", r.URL.Path)
 
-	// Obtenim el valor de les vaiables hostname i ipAddress que es passaran a la plantilla HTML
+	// Obtenim el valor de les variables hostname i ipAddress que es passaran a la plantilla HTML
 	stringMap := make(map[string]string)
 	hostname, _ := os.Hostname()
 	stringMap["hostname"] = hostname

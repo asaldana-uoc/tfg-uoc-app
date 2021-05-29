@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// Estructura de dades amb tots els endpoints que s'executaran els tests
 var endpointsToCheck = []struct {
 	handlerName      http.HandlerFunc
 	URL              string
@@ -19,7 +20,9 @@ var endpointsToCheck = []struct {
 	{Home, "/testing", "GET", http.StatusNotFound, "Pàgina no trobada\n"},
 }
 
+// Funció per a testejar tots els handlers de la classe handlers.go
 func TestHandler(t *testing.T) {
+	// Iterem sobre tots els elements definits en l'estructura de dades endpointsToCheck
 	for _, key := range endpointsToCheck {
 		req, err := http.NewRequest(key.method, key.URL, nil)
 		if err != nil {

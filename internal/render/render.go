@@ -18,6 +18,7 @@ const templatesPath = "html/"
 func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.DataHTML) error {
 	templateFile := templatesPath + tmpl
 	parsedTemplate, err:= template.ParseFS(templatesHTML, templateFile)
+	// Si no es troba la plantilla, es retorna un missatge i codi d'error HTTP/503
 	if err != nil {
 		http.Error(w, "Servei no disponible", http.StatusServiceUnavailable)
 		log.Print(err.Error())
@@ -25,6 +26,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, data *web.DataHTML) erro
 	}
 
 	err2 := parsedTemplate.Execute(w, data)
+	// Si no es pot processar la plantilla, es retorna un missatge i el codi d'error HTTP/503
 	if err2 != nil {
 		http.Error(w, "Petició no vàlida", http.StatusServiceUnavailable)
 		log.Print(err.Error())
