@@ -10,6 +10,8 @@ import (
 	"os"
 )
 
+var gitCommit string
+
 // Home Handler que s'encarrega d'implementar la lògica de la pàgina principal on es mostra una pàgina HTML
 // amb la informació del TFG i el hostname i l'adreça IP del sistema.
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -26,6 +28,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	hostname, _ := os.Hostname()
 	stringMap["hostname"] = hostname
 	stringMap["ipAddress"] = getLocalIP()
+	stringMap["gitCommit"] = gitCommit
 
 	// Definim quina plantilla HTML utilitzarem i li passem els valors del mapa d'strings per a que modifiqui
 	// dinàmicament els valors Hostname i Adreça IP
