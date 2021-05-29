@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Treball de Final de Grau</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-bordered table-sm align-middle" style="margin-top:40px">
+        <tbody>
+        <tr>
+            <td style="font-weight: bold;">Títol del treball</td>
+            <td>GitOps: l’evolució de la cultura DevOps</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Titulació</td>
+            <td>Grau d'Enginyeria Informàtica</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Àrea</td>
+            <td>Administració de xarxes i sistemes operatius</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Alumne</td>
+            <td>Angel Saldaña López</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Curs acadèmic</td>
+            <td>2020/2021</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <table class="table table-bordered table-sm align-middle" style="margin-top:60px">
+        <thead>
+        <tr>
+            <th colspan=2 style="text-align:center" scope="col">Informació del sistema</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="font-weight: bold;">Hostname</td>
+            <td>{{index .StringMap "hostname"}}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Adreça IP</td>
+            <td>{{index .StringMap "ipAddress"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
