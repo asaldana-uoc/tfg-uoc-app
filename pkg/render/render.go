@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-const templatesPath = "./web/html/"
+var templatesPath = "./web/html/"
 
 // RenderTemplate Funció que s'encarrega de realitzar la renderització de la pàgina HTML a mostrar segons els paràmetres
 // que rebi d'entrada (plantilla a utilitzar i conjunt de variables a tenir en compte)
