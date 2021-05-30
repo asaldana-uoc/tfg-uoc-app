@@ -1,0 +1,9 @@
+steps:
+  - id: 'go tests'
+    name: 'golang:1.16'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        go test -v ./... || exit 1
+    timeout: 60s
