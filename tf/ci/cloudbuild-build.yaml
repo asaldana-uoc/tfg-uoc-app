@@ -1,0 +1,13 @@
+steps:
+  - id: 'build go app'
+    name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build',
+            '-t', 'gcr.io/tfg-uoc-313418/tfg-uoc-app',
+            '-t', 'gcr.io/tfg-uoc-313418/tfg-uoc-app:$SHORT_SHA',
+            '--build-arg', 'GIT_COMMIT=$SHORT_SHA',
+            '-f', 'Dockerfile',
+            '.' ]
+images: [
+    'gcr.io/tfg-uoc-313418/tfg-uoc-app',
+    'gcr.io/tfg-uoc-313418/tfg-uoc-app:$SHORT_SHA'
+]

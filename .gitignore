@@ -1,1 +1,18 @@
-.idea/
+# Excloem el directori temporal generat per l'IDE
+**/.idea/*
+
+# Directoris local de terraform per temes de cache
+**/.terraform/*
+
+# Arxius d'estat de terraform
+*.tfstate
+*.tfstate.*
+
+# Logs d'error generats per terraform
+crash.log
+
+# S'exclouen els fitxers .tfvars ja que habitualment contenen informació sensible que
+# mai s'han d'emmagatzemar en sistemes de control de versions per temes de seguretat
+#
+*.tfvars
+
