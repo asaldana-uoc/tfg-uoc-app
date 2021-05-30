@@ -2,9 +2,10 @@
 # s'executi cada vegada que es detecti un canvi nou en la branca principal main.
 # Només s'aplicarà terraform quan els canvis afectin a l'entorn devel.
 resource "google_cloudbuild_trigger" "ci_tests_rigger" {
-  name        = "tfg-uoc-ci-tests-app"
-  description = "Trigger que s'executarà en cada nova Pull Request creada i commits posteriors"
-  filename    = "tf/ci/cloudbuild-tests.yaml"
+  name          = "tfg-uoc-ci-tests-app"
+  description   = "Trigger que s'executarà en cada nova Pull Request creada i commits posteriors"
+  filename      = "tf/ci/cloudbuild-tests.yaml"
+  ignored_files = ["k8s/**", "tf/**"]
 
   github {
     owner = "asaldana-uoc"
@@ -17,9 +18,10 @@ resource "google_cloudbuild_trigger" "ci_tests_rigger" {
 }
 
 resource "google_cloudbuild_trigger" "ci_build_trigger" {
-  name        = "tfg-uoc-ci-build-app"
-  description = "Trigger que s'executarà cada nou commit a la branca main per construir la imatge de docker"
-  filename    = "tf/ci/cloudbuild-build.yaml"
+  name          = "tfg-uoc-ci-build-app"
+  description   = "Trigger que s'executarà cada nou commit a la branca main per construir la imatge de docker"
+  filename      = "tf/ci/cloudbuild-build.yaml"
+  ignored_files = ["k8s/**", "tf/**"]
 
   github {
     owner = "asaldana-uoc"
