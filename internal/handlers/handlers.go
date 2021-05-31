@@ -47,5 +47,4 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	//http.(w, "Service Unavailable", http.StatusServiceUnavailable)
 	log.Printf("Petició rebuda a la URL %s", r.URL.Path)
 	fmt.Fprintf(w, "Health check KO")
-
 }
