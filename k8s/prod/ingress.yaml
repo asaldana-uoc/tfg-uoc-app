@@ -9,7 +9,7 @@ metadata:
   name: tfg-uoc-app
   namespace: prod
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-devel"
+    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-prod"
 # S'especifica cap a quin servei s'enrutaran les peticions que rebi el balancejador públic
 spec:
   defaultBackend:
