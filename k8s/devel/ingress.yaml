@@ -1,0 +1,14 @@
+# Versió de la API de Kubernetes per l'objecte a crear
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tfg-uoc-app
+  namespace: devel
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-devel"
+spec:
+  defaultBackend:
+    service:
+      name: tfg-uoc-app
+      port:
+        number: 8888

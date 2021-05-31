@@ -4,12 +4,10 @@ metadata:
   name: tfg-uoc-app
   namespace: devel
 spec:
-  type: LoadBalancer
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 8888
+      protocol: TCP
       targetPort: 8888
   selector:
     run: tfg-uoc-app
-  loadBalancerSourceRanges:
-  - 83.32.0.0/12
+  type: NodePort
