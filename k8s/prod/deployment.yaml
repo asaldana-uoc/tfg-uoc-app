@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tfg-uoc-app
-          image: gcr.io/tfg-uoc-313418/tfg-uoc-app:latest
+          image: gcr.io/tfg-uoc-313418/tfg-uoc-app:4cb3227
           ports:
             - containerPort: 8888
               protocol: TCP
