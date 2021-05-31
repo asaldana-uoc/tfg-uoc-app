@@ -6,7 +6,7 @@ kind: Ingress
 # A més a més, s'especifica una anotació especial per indicar a l'objecte ingress que utilitzi
 # una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-devel
 metadata:
-  name: tfg-uoc-app
+  name: tfg-uoc-app-devel
   namespace: devel
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-devel"
@@ -14,6 +14,6 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: tfg-uoc-app
+      name: tfg-uoc-app-devel
       port:
         number: 8888
