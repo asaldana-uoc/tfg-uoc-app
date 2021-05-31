@@ -1,13 +1,18 @@
+# Versió de la API de Kubernetes per l'objecte a crear
 apiVersion: v1
+# Tipus d'objecte a crear
 kind: Service
+# En aquesta secció creem un nom per l'objecte i indiquem que es creei en el namespace devel
 metadata:
   name: tfg-uoc-app
   namespace: devel
+# S'especifica cap a quins pods s'enviaran les peticions utilitzen el selector i especificant el nom tfg-uoc-app
+# definit en l'objecte deployment. A més a més, s'especifica que el servei a crear sigui de tipus NodePort
 spec:
   ports:
     - port: 8888
       protocol: TCP
       targetPort: 8888
   selector:
-    run: tfg-uoc-app
+    app: tfg-uoc-app
   type: NodePort

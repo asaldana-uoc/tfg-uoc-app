@@ -1,11 +1,16 @@
 # Versió de la API de Kubernetes per l'objecte a crear
 apiVersion: networking.k8s.io/v1
+# Tipus d'objecte a crear
 kind: Ingress
+# En aquesta secció creem un nom per l'objecte i indiquem que es creei en el namespace devel.
+# A més a més, s'especifica una anotació especial per indicar a l'objecte ingress que utilitzi
+# una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-prod
 metadata:
   name: tfg-uoc-app
   namespace: prod
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-prod"
+    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-devel"
+# S'especifica cap a quin servei s'enrutaran les peticions que rebi el balancejador públic
 spec:
   defaultBackend:
     service:
