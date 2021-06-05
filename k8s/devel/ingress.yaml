@@ -4,7 +4,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 # En aquesta secció creem un nom per l'objecte i indiquem que es creei en el namespace devel.
 # A més a més, s'especifica una anotació especial per indicar a l'objecte ingress que utilitzi
-# una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-devel
+# una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-devel i per a utilitzar un certificat
+# autogestionat per GCP de nom tfg-uoc-app-devel-cert.
 metadata:
   name: tfg-uoc-app-devel
   namespace: devel
