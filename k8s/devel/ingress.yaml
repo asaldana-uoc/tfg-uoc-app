@@ -9,7 +9,7 @@ metadata:
   name: tfg-uoc-app-devel
   namespace: devel
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-ip-devel"
+    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-devel-ip"
     networking.gke.io/managed-certificates: "tfg-uoc-app-devel-cert"
     kubernetes.io/ingress.class: "gce"
 # S'especifica cap a quin servei s'enrutaran les peticions que rebi el balancejador públic
