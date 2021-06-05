@@ -1,3 +1,4 @@
+# Versió de la API de Kubernetes per l'objecte a crear
 apiVersion: apps/v1
 # Tipus d'objecte a desplegar
 kind: Deployment
