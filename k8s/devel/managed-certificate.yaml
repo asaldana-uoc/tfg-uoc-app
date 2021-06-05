@@ -1,0 +1,7 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: tfg-uoc-app-devel-cert
+spec:
+  domains:
+    - app-devel.asaldana.tech
