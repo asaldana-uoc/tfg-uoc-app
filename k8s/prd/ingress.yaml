@@ -4,19 +4,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 # En aquesta secció creem un nom per l'objecte i indiquem que es creei en el namespace devel.
 # A més a més, s'especifica una anotació especial per indicar a l'objecte ingress que utilitzi
-# una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-prod i per a utilitzar un certificat
-# autogestionat per GCP de nom tfg-uoc-app-prod-cert.
+# una IP estàtica reservada a GCP amb el nom de tfg-uoc-app-ip-prd i per a utilitzar un certificat
+# autogestionat per GCP de nom tfg-uoc-app-prd-cert.
 metadata:
-  name: tfg-uoc-app-prod
-  namespace: prod
+  name: tfg-uoc-app-prd
+  namespace: prd
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-prod-ip"
-    networking.gke.io/managed-certificates: "tfg-uoc-app-prod-cert"
+    kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-prd-ip"
+    networking.gke.io/managed-certificates: "tfg-uoc-app-prd-cert"
     kubernetes.io/ingress.class: "gce"
 # S'especifica cap a quin servei s'enrutaran les peticions que rebi el balancejador públic
 spec:
   defaultBackend:
     service:
-      name: tfg-uoc-app-prod
+      name: tfg-uoc-app-prd
       port:
         number: 8888

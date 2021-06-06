@@ -1,0 +1,37 @@
+# Versió de la API de Kubernetes per l'objecte a crear
+apiVersion: apps/v1
+# Tipus d'objecte a desplegar
+kind: Deployment
+# En aquesta secció creem un nom per l'objecte i indiquem que es creei en el namespace prd
+metadata:
+  name: tfg-uoc-app-prd
+  namespace: prd
+# Aquí establim l'estat desitjat de l'objecte deployment i que automàticament es corregirà si no es troba en aquesta situació
+spec:
+  # Número de pods concurrents
+  replicas: 3
+  # És la propietat que garanteix que el deployment trobi quins pods ha de gestionar
+  selector:
+    matchLabels:
+      app: tfg-uoc-app-prd
+  # És la propietat que estableix com s'etiquetaran els pods
+  template:
+    metadata:
+      labels:
+        app: tfg-uoc-app-prd
+    # La directiva spec serveix per definir com ha de ser el pod ha executar i quina imatge utilitzar
+    spec:
+      containers:
+        - name: tfg-uoc-app-prd
+          image: gcr.io/tfg-uoc-313418/tfg-uoc-app:4cb3227
+          ports:
+            - containerPort: 8888
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /status
+              port: 8888
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3

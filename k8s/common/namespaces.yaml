@@ -15,3 +15,12 @@ kind: Namespace
 metadata:
   # Nom del namespace dins del cluster
   name: prod
+---
+# Versió de la API de Kubernetes per l'objecte a crear
+apiVersion: v1
+# Tipus d'objecte a crear, en aquest cas un namespace
+kind: Namespace
+# La metadata inclou elements de tipus clau valor que permeten identificar l'objecte dins del clúster
+metadata:
+  # Nom del namespace dins del cluster
+  name: prd
