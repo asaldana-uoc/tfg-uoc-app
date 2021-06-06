@@ -11,9 +11,8 @@ metadata:
   namespace: prod
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "tfg-uoc-app-prod-ip"
-    ingress.gcp.kubernetes.io/pre-shared-cert: "mcrt-0f74c203-f601-47af-935f-e8ecffb52be1"
-    #networking.gke.io/managed-certificates: "tfg-uoc-app-prod-cert"
-    #kubernetes.io/ingress.class: "gce"
+    networking.gke.io/managed-certificates: "tfg-uoc-app-prod-cert"
+    kubernetes.io/ingress.class: "gce"
 # S'especifica cap a quin servei s'enrutaran les peticions que rebi el balancejador públic
 spec:
   defaultBackend:
