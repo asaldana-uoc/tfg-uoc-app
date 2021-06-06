@@ -4,8 +4,8 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 # Definim el nom del recurs dins de GCP
 metadata:
-  name: tfg-uoc-app-prod-cert
+  name: tfg-uoc-app-prd-cert
 # Especificarem a quin FQDN correspondrà el certificat SSL
 spec:
   domains:
-    - app-prod.asaldana.tech
+    - app-prd.asaldana.tech
