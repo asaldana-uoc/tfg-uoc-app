@@ -9,7 +9,7 @@ metadata:
 # Aquí establim l'estat desitjat de l'objecte deployment i que automàticament es corregirà si no es troba en aquesta situació
 spec:
   # Número de pods concurrents
-  replicas: 3
+  replicas: 6
   # És la propietat que garanteix que el deployment trobi quins pods ha de gestionar
   selector:
     matchLabels:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: tfg-uoc-app-prod
-          image: gcr.io/tfg-uoc-313418/tfg-uoc-app:4cb3227
+          image: gcr.io/tfg-uoc-313418/tfg-uoc-app:9d22c9f
           ports:
             - containerPort: 8888
               protocol: TCP
